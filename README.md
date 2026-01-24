@@ -1,6 +1,6 @@
 # CSH
 
-<b>CSH</b> is an Open-source stack-based programming language, written in C. This was a practice project.
+<b>CSH</b> (Pronounced as Cash) is an Open-source stack-based programming language, written in C. This was a practice project.
 Its features include:
 
 - A stack based memory, consisting of 1024 elements.
