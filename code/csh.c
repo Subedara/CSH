@@ -148,12 +148,12 @@ int main() {
         switch (command)
         {
             case PUSH:
-                printf("PUSHING VALUE IN STACK.\n", command);
+                printf("PUSHING VALUE IN STACK.\n");
                 push_stack(atoi(line[1]), &stack);
                 break;
             
             case POP:
-                printf("POPPING VALUE FROM STACK.\n", command);
+                printf("POPPING VALUE FROM STACK.\n");
                 pop_stack(&stack);
                 break;
 
