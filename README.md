@@ -262,3 +262,21 @@ Contributions are welcome! If you want to help improve this project, you can:
    - Make your changes and commit with clear messages.  
    - Push to your fork and open a pull request.
 
+### LICENSE
+
+This project is MIT Licensed. This is the [LICENSE](https://github.com/Subedara/CSH/blob/main/LICENSE).
+
+### ROADMAP
+
+- Support for floats, chars, and bools.
+- Implementation for loops and conditions.
+- Add custom file format.
+- Improve error handling.
+
+### Acknowledgements
+
+This project was, initially, not supposed to be a stack-based programming language. It was supposed to be a bash type scripting language. It was also made when I was learning C programming language as a practice for making Terminal RPG.
+
+### Contact
+
+If you want to get in contact, you can email me on [abd2maqsood@gmail.com](mailto:abd2maqsood@gmail.com) or you can use my github [Subedara](https://github.com/Subedara).
