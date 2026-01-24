@@ -9,7 +9,9 @@ To get started, you can either:
 ##### Compiling the code
 
 Clone the github repository.
-`git clone https://github.com/Subedara/CSH.git`
+```git
+git clone https://github.com/Subedara/CSH.git
+```
 
 then
 `cd CSH`
