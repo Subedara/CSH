@@ -36,7 +36,7 @@ csh.exe
 ###### Linux:
 ```bash
 gcc csh.c -o csh
-csh
+./csh
 ```
 
 ##### Downloading already compiled code.
