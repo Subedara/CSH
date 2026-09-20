@@ -58,7 +58,7 @@ csh.exe
 ```
 ###### Linux:
 ```bash
-csh
+./csh
 ```
 
 #### Launching Screen
