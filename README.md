@@ -5,7 +5,7 @@ Its features include:
 
 - A stack based memory, consisting of 1024 elements.
 - Supports Integers (Strings, floats, and booleans will be added later.)
-- Has 11 commands.
+- Has 12 commands.
 
 ### Get Started
 
