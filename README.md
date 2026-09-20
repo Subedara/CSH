@@ -30,7 +30,7 @@ cd code
 ```
 ###### Windows:
 ```bash
-gcc csh.c -o csh.exe
+gcc csh.c command.c -o csh.exe
 csh.exe
 ```
 ###### Linux:

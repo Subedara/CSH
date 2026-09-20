@@ -5,12 +5,13 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+// Project internal includes
 
+#include "command.h"
 
 // Some definitions
 
 #define BUFFER_SIZE 1024
-#define OPERATOR_SIZE 9
 #define MAX_WORDS 3
 #define MAX_COMMAND_LENGTH 32
 
@@ -73,52 +74,6 @@ int pop_stack(Stack *stack) {
     return temp;
 }
 
-typedef enum { 
-    ADD = 0,
-    SUBTRACT = 1,
-    MULTIPLY = 2,
-    DIVIDE = 3,
-    MOD = 4,
-    XOR = 5,
-    AND = 6,
-    OR = 7,
-    NOT = 8,
-    PUSH = 9,
-    POP = 10,
-    SHOW = 11
-} Commands;
-
-
-
-Commands to_command_enum(char operator[OPERATOR_SIZE]) {
-    if (strcmp(operator, "push") == 0) {
-        return PUSH;
-    } else if (strcmp(operator, "pop") == 0) {
-        return POP;
-    } else if (strcmp(operator, "add") == 0) {
-        return ADD;
-    } else if (strcmp(operator, "subtract") == 0) {
-        return SUBTRACT;
-    } else if (strcmp(operator, "multiply") == 0) {
-        return MULTIPLY;
-    } else if (strcmp(operator, "divide") == 0) {
-        return DIVIDE;
-    } else if (strcmp(operator, "mod") == 0) {
-        return MOD;
-    } else if (strcmp(operator, "xor") == 0) {
-        return XOR;
-    } else if (strcmp(operator, "and") == 0) {
-        return AND;
-    } else if (strcmp(operator, "or") == 0) {
-        return OR;
-    } else if (strcmp(operator, "not") == 0) {
-        return NOT;
-    } else if (strcmp(operator, "show") == 0) {
-        return SHOW;
-    }
-
-    return -1;
-}
 
 char* input(char buff[BUFFER_SIZE]) {
     if (fgets(buff, BUFFER_SIZE, stdin) != NULL) { 
