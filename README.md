@@ -239,7 +239,16 @@ PUSHING VALUE IN STACK.
 csh > show
 TOP OF STACK = 10
 ```
+###### EXIT
 
+EXIT is used to exit the csh REPL.
+
+Usage:
+
+```
+csh > exit
+EXITING...
+```
 
 ### NOTES
 

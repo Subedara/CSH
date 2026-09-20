@@ -16,7 +16,8 @@ typedef enum {
     NOT = 8,
     PUSH = 9,
     POP = 10,
-    SHOW = 11
+    SHOW = 11,
+    EXIT = 99
 } Commands;
 
 Commands to_command_enum(char operator[OPERATOR_SIZE]); 

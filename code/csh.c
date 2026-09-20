@@ -190,6 +190,10 @@ int main() {
                     printf("STACK IS EMPTY\n");
                 break;
 
+            case EXIT:
+                printf("EXITING...\n");
+                return 0;
+
             default:
                 printf("UNKNOWN COMMAND.\n");
                 break;

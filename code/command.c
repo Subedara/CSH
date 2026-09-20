@@ -27,6 +27,8 @@ Commands to_command_enum(char operator[OPERATOR_SIZE]) {
         return NOT;
     } else if (strcmp(operator, "show") == 0) {
         return SHOW;
+    } else if (strcmp(operator, "exit") == 0) {
+        return EXIT;
     }
 
     return -1;
