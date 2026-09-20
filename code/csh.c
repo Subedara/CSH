@@ -84,120 +84,128 @@ char* input(char buff[BUFFER_SIZE]) {
     }
 }
 
-int main() {
-    Stack stack;
-    stack.stack_pointer = 0;
-    clear_screen();
-    while (1) {
-        char buff[BUFFER_SIZE];
-        printf("csh > ");
-        strcpy(buff, input(buff));
-        char line[MAX_WORDS][MAX_COMMAND_LENGTH];
-        int count = split(buff, line);
+int main(int argc, char** argv) {
+    
+    if (strcmp(argv[1], "-r") && argc == 2) {
+        Stack stack;
+        stack.stack_pointer = 0;
+        clear_screen();
+        while (1) {
+            char buff[BUFFER_SIZE];
+            printf("csh > ");
+            strcpy(buff, input(buff));
+            char line[MAX_WORDS][MAX_COMMAND_LENGTH];
+            int count = split(buff, line);
         
-        char operator[OPERATOR_SIZE];
-        strcpy(operator, line[0]);
-        operator[OPERATOR_SIZE-1] = '\0';
-        int a; int b; int c;
-        Commands command = to_command_enum(operator);
-        switch (command)
-        {
-            case PUSH:
-                printf("PUSHING VALUE IN STACK.\n");
-                push_stack(atoi(line[1]), &stack);
-                break;
+            char operator[OPERATOR_SIZE];
+            strcpy(operator, line[0]);
+            operator[OPERATOR_SIZE-1] = '\0';
+            int a; int b; int c;
+            Commands command = to_command_enum(operator);
+            switch (command)
+            {
+                case PUSH:
+                    printf("PUSHING VALUE IN STACK.\n");
+                    push_stack(atoi(line[1]), &stack);
+                    break;
             
-            case POP:
-                printf("POPPING VALUE FROM STACK.\n");
-                pop_stack(&stack);
-                break;
+                case POP:
+                    printf("POPPING VALUE FROM STACK.\n");
+                    pop_stack(&stack);
+                    break;
 
-            case ADD:
-                printf("ADDING NUMBERS.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b + a;
-                push_stack(c, &stack);
-                break;
+                case ADD:
+                    printf("ADDING NUMBERS.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b + a;
+                    push_stack(c, &stack);
+                    break;
 
-            case SUBTRACT:
-                printf("SUBTRACTING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b - a;
-                push_stack(c, &stack);
-                break;
+                case SUBTRACT:
+                    printf("SUBTRACTING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b - a;
+                    push_stack(c, &stack);
+                    break;
 
-            case MULTIPLY:
-                printf("MULTIPLYING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b * a;
-                push_stack(c, &stack);
-                break;
+                case MULTIPLY:
+                    printf("MULTIPLYING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b * a;
+                    push_stack(c, &stack);
+                    break;
 
-            case DIVIDE:
-                printf("DIVIDING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b / a;
-                push_stack(c, &stack);
-                break;
+                case DIVIDE:
+                    printf("DIVIDING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b / a;
+                    push_stack(c, &stack);
+                    break;
 
-            case MOD:
-                printf("MODDING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b % a;
-                push_stack(c, &stack);
-                break;
+                case MOD:
+                    printf("MODDING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b % a;
+                    push_stack(c, &stack);
+                    break;
 
-            case XOR:
-                printf("XORING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b ^ a;
-                push_stack(c, &stack);
-                break;
+                case XOR:
+                    printf("XORING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b ^ a;
+                    push_stack(c, &stack);
+                    break;
 
-            case AND:
-                printf("ANDING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b & a;
-                push_stack(c, &stack);
-                break;
+                case AND:
+                    printf("ANDING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b & a;
+                    push_stack(c, &stack);
+                    break;
 
-            case OR:
-                printf("ORING NUMBER.\n");
-                a = pop_stack(&stack);
-                b = pop_stack(&stack);
-                c = b | a;
-                push_stack(c, &stack);
-                break;
+                case OR:
+                    printf("ORING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    b = pop_stack(&stack);
+                    c = b | a;
+                    push_stack(c, &stack);
+                    break;
 
-            case NOT:
-                printf("NOTING NUMBER.\n");
-                a = pop_stack(&stack);
-                c = ~a;
-                push_stack(c, &stack);
-                break;
+                case NOT:
+                    printf("NOTING NUMBER.\n");
+                    a = pop_stack(&stack);
+                    c = ~a;
+                    push_stack(c, &stack);
+                    break;
 
-            case SHOW:
-                if (stack.stack_pointer > 0)
-                    printf("TOP OF STACK = %d\n", stack.stack[stack.stack_pointer - 1]);
-                else
-                    printf("STACK IS EMPTY\n");
-                break;
+                case SHOW:
+                    if (stack.stack_pointer > 0)
+                        printf("TOP OF STACK = %d\n", stack.stack[stack.stack_pointer - 1]);
+                    else
+                        printf("STACK IS EMPTY\n");
+                    break;
 
-            case EXIT:
-                printf("EXITING...\n");
-                return 0;
+                case EXIT:
+                    printf("EXITING...\n");
+                    return 0;
 
-            default:
-                printf("UNKNOWN COMMAND.\n");
-                break;
+                default:
+                    printf("UNKNOWN COMMAND.\n");
+                    break;
 
+            }
         }
+    }
+    else if (strcmp(argv[1], "-i") == 0) {
+        char* name = argv[2];
+
+        /// TODO: MAKE FILE READING.
     }
 }
